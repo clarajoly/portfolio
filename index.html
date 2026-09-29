@@ -365,6 +365,50 @@ section.block + section.block{border-top:1px solid var(--line)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
+/* ---------- mobile allégé ---------- */
+.skill-tabs{display:none}
+@media (max-width:600px){
+  section.block{padding-block:52px}
+  .sec-head{margin-bottom:26px;gap:12px}
+  .sec-head p{font-size:14px}
+  .hero{padding-block:32px 44px}
+  .hero .about{display:none}
+  .hero-side{gap:18px}
+  .exp-feature{padding:22px 18px;gap:20px;border-radius:20px}
+  .exp-intro{font-size:15.5px}
+  .missions{gap:8px}
+  .mission{padding:14px 16px;gap:4px;border-radius:12px}
+  .mission h4{font-size:18px}
+  .mission p{font-size:13.5px}
+  .exp{padding-block:26px}
+  .exp-body{gap:8px}
+  .exp-body > p{font-size:14.5px}
+  .tasks{display:grid;gap:8px;grid-template-columns:1fr}
+  .tasks li{background:none;border:0;border-radius:0;padding:0 0 0 18px;position:relative;font-size:14px}
+  .tasks li::before{content:"";position:absolute;left:2px;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--rose)}
+  .tasks li b{display:inline;font-size:14px;margin:0}
+  .tasks li b::after{content:" : "}
+  .project{padding-block:32px;gap:18px}
+  .p-body{gap:16px}
+  .p-text{padding:20px 18px;gap:12px}
+  .p-text p{font-size:15px}
+  .p-text li{font-size:14px}
+  .skill-tabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;scrollbar-width:none}
+  .skill-tabs button{flex:none;font:inherit;font-size:13.5px;font-weight:600;padding:9px 14px;border-radius:999px;border:1px solid var(--rose);background:var(--paper);color:var(--rose-deep);cursor:pointer}
+  .skill-tabs button[aria-selected="true"]{background:var(--rose);color:var(--ink)}
+  .skills .skill-col{display:none}
+  .skills[data-tab="0"] .skill-col:nth-child(1),.skills[data-tab="1"] .skill-col:nth-child(2),.skills[data-tab="2"] .skill-col:nth-child(3){display:grid}
+  .skill-col{padding:22px 18px;gap:16px}
+  .skill-col h3{font-size:24px;padding-bottom:12px}
+  .edu-row{padding-block:18px}
+  .panel{padding:22px 18px;gap:16px}
+  .panel h3{font-size:28px}
+  .contact{padding-block:56px 32px}
+  .contact .lead{margin-bottom:32px}
+  .contact-grid{padding-top:28px;gap:28px}
+  .legal{margin-top:40px}
+}
+
 /* ---------- lightbox ---------- */
 .lb[hidden]{display:none}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(24,18,20,.92);display:grid;grid-template-rows:1fr auto;padding:clamp(16px,4vw,48px);gap:14px}
@@ -813,7 +857,12 @@ section.block + section.block{border-top:1px solid var(--line)}
       <div><p class="eyebrow">05 · Savoir-faire</p><h2>Compétences</h2></div>
       <p>Ce que je mets en pratique au quotidien, du terrain événementiel aux outils de création.</p>
     </div>
-    <div class="skills">
+    <div class="skill-tabs" role="tablist" aria-label="Catégories de compétences">
+      <button type="button" role="tab" aria-selected="true" data-tab="0">Événementiel</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="1">Communication</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="2">Outils</button>
+    </div>
+    <div class="skills" data-tab="0">
       <div class="skill-col">
         <h3>Événementiel</h3>
         <div class="skill"><b>Organisation d’événements</b><p>Cérémonies de remise des ailes, remises des diplômes, gala annuel, afterworks et masterclasses chez Astonfly ; salons et portes ouvertes chez Clair Group.</p></div>
@@ -975,6 +1024,13 @@ section.block + section.block{border-top:1px solid var(--line)}
     var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});
     els.forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*0.92){el.classList.add('rv');io.observe(el);}});
   }
+  var sk=document.querySelector('.skills');
+  document.querySelectorAll('.skill-tabs button').forEach(function(bt){
+    bt.addEventListener('click',function(){
+      sk.setAttribute('data-tab',bt.getAttribute('data-tab'));
+      document.querySelectorAll('.skill-tabs button').forEach(function(o){o.setAttribute('aria-selected',o===bt?'true':'false');});
+    });
+  });
 })();
 </script>
 
