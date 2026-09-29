@@ -8,7 +8,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Clara Joly · Portfolio">
 <meta property="og:description" content="Recherche une alternance en événementiel, dès maintenant et jusqu’en septembre 2028. Étudiante en 4e année à l’EFAP Paris.">
-<meta property="og:image" content="og-image.jpg">
+<meta property="og:url" content="https://clara-joly.vercel.app/">
+<meta property="og:image" content="https://clara-joly.vercel.app/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -64,12 +65,17 @@ p{margin:0}
 .btn svg{width:14px;height:14px;flex:none}
 .nav .btn{flex:none}
 @media (max-width:1060px){
-  .nav .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-block:10px 0}
-  .nav nav{order:3;flex:1 0 100%;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:calc(-1 * clamp(16px,4vw,40px));padding-inline:clamp(16px,4vw,40px);border-top:1px solid var(--line);margin-top:10px}
+  .nav .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-block:8px 0}
+  .nav .brand{font-size:20px}
+  .nav .wrap > .btn{padding:8px 16px;font-size:13px}
+  .nav nav{order:3;flex:1 0 100%;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:calc(-1 * clamp(16px,4vw,40px));padding-inline:clamp(16px,4vw,40px);margin-top:8px;border-top:1px solid var(--line);
+    -webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
   .nav nav::-webkit-scrollbar{display:none}
-  .nav ul{padding-block:11px;gap:22px;width:max-content}
-  .nav ul a{font-size:13.5px}
-  html{scroll-padding-top:118px}
+  .nav ul{padding-block:8px;gap:6px;width:max-content;padding-right:40px}
+  .nav ul a{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
+  .nav ul a::after{display:none}
+  .nav ul a.active{background:var(--rose);color:var(--ink);border-color:var(--rose)}
+  html{scroll-padding-top:112px}
 }
 
 /* ---------- hero ---------- */
@@ -112,7 +118,7 @@ p{margin:0}
 .toc .t{font-family:var(--display);font-size:24px;line-height:1.15}
 .toc .d{font-size:13px;opacity:.72;margin-top:4px;line-height:1.45}
 @media (max-width:900px){.toc ol{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:480px){.toc ol{grid-template-columns:1fr}.toc a{gap:10px}}
+
 
 /* ---------- sections ---------- */
 section.block{padding-block:88px}
@@ -332,7 +338,21 @@ section.block + section.block{border-top:1px solid var(--line)}
 .exp:hover .exp-meta::before{background:var(--rose)}
 .exp-list-label{display:flex;align-items:center;gap:12px;margin-top:40px;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep)}
 .exp-list-label::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--rose)}
-@media (max-width:760px){.exp-list::before{top:40px}}
+@media (max-width:760px){
+  .exp-list::before{top:44px;bottom:40px;left:7px}
+  .exp{position:relative;padding-left:32px;gap:12px}
+  .exp-meta{padding-left:0;position:static;flex-wrap:wrap}
+  .exp-meta::before{top:44px;left:0}
+  .exp-list-label{margin-top:32px}
+}
+@media (max-width:600px){
+  .toc{padding-block:48px}
+  .toc-head{margin-bottom:20px}
+  .toc ol{grid-template-columns:1fr 1fr}
+  .toc a{gap:8px;padding:16px 14px}
+  .toc .t{font-size:19px}
+  .toc .d{display:none}
+}
 
 /* ---------- menu actif ---------- */
 .nav ul a{position:relative;padding-block:6px}
@@ -920,7 +940,7 @@ section.block + section.block{border-top:1px solid var(--line)}
   function upd(){tt.hidden=window.scrollY<som.offsetTop+som.offsetHeight-80;}
   window.addEventListener('scroll',upd,{passive:true});upd();
   function go(id){
-    var t=document.getElementById(id);
+    var t=id==='top'?null:document.getElementById(id);
     var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(t){t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});}
     else{window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});}
@@ -941,6 +961,11 @@ section.block + section.block{border-top:1px solid var(--line)}
     secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<=y)idx=i;});
     var c=document.getElementById('contact');if(c&&c.getBoundingClientRect().top<innerHeight*0.5)idx=-1;
     navLinks.forEach(function(l,i){l.classList.toggle('active',i===idx);});
+    var nv=document.querySelector('.nav nav');
+    if(idx>=0&&nv&&nv.scrollWidth>nv.clientWidth&&act.last!==idx){
+      var l=navLinks[idx];nv.scrollTo({left:l.offsetLeft-(nv.clientWidth-l.offsetWidth)/2,behavior:'smooth'});
+    }
+    act.last=idx;
   }
   window.addEventListener('scroll',act,{passive:true});act();
   if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
