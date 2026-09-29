@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Clara Joly Portfolio</title>
+<meta name="description" content="Portfolio de Clara Joly — événementiel, communication et community management. Étudiante en 4e année à l'EFAP Paris, en alternance chez Astonfly.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Clara Joly · Portfolio">
+<meta property="og:description" content="Recherche une alternance en événementiel, dès maintenant et jusqu’en septembre 2028. Étudiante en 4e année à l’EFAP Paris.">
+<meta property="og:image" content="og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23CCABAB'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='36' fill='%232B2224'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* Layout : une colonne éditoriale de 1180px, sections numérotées comme le sommaire,
+   études de cas en grand (texte + visuels + bouton Regarder à droite). Thème clair unique, choisi. */
+:root{
+  --rose:#CCABAB;          /* couleur signature demandée */
+  --rose-soft:#EFE2E1;
+  --rose-deep:#8A5A5E;     /* texte d'accent lisible sur fond clair */
+  --ink:#2B2224;
+  --ink-soft:#6A5B5D;
+  --ground:#FBF8F6;
+  --paper:#FFFFFF;
+  --line:#E6D8D6;
+  --display:'Gloock', 'Georgia', 'Times New Roman', serif;
+  --body:'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --wrap:1180px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+[data-go]{cursor:pointer}
+:focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px;border-radius:4px}
+h1,h2,h3,h4{margin:0;font-weight:400;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+
+/* ---------- navigation ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(251,248,246,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px}
+.brand{white-space:nowrap;flex:none;display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-size:22px;letter-spacing:.2px}
+.brand .dot{width:12px;height:12px;border-radius:50%;background:var(--rose)}
+.nav ul{display:flex;align-items:center;gap:clamp(12px,1.6vw,26px);list-style:none;margin:0;padding:0;flex-wrap:nowrap}
+.nav nav{min-width:0}
+.nav ul a{white-space:nowrap;text-decoration:none;font-size:clamp(13px,1.05vw,14px);font-weight:500;color:var(--ink-soft);transition:color .15s}
+.nav ul a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:14px;border-radius:999px;padding:10px 20px;transition:transform .15s,background .15s,color .15s;white-space:nowrap;border:1.5px solid var(--ink)}
+.btn-rose{background:var(--rose);border-color:var(--rose);color:var(--ink)}
+.btn-rose:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn-ink{background:var(--ink);color:var(--paper)}
+.btn-ink:hover{background:var(--rose);border-color:var(--rose);color:var(--ink)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn svg{width:14px;height:14px;flex:none}
+.nav .btn{flex:none}
+@media (max-width:1060px){
+  .nav .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-block:10px 0}
+  .nav nav{order:3;flex:1 0 100%;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:calc(-1 * clamp(16px,4vw,40px));padding-inline:clamp(16px,4vw,40px);border-top:1px solid var(--line);margin-top:10px}
+  .nav nav::-webkit-scrollbar{display:none}
+  .nav ul{padding-block:11px;gap:22px;width:max-content}
+  .nav ul a{font-size:13.5px}
+  html{scroll-padding-top:118px}
+}
+
+/* ---------- hero ---------- */
+.marquee{overflow:hidden;border-bottom:1px solid var(--line);padding-block:18px 14px}
+.marquee-track{-webkit-mask-image:none}
+.marquee-track{display:flex;width:max-content;animation:scroll 70s linear infinite;will-change:transform;backface-visibility:hidden}
+.mq-group{display:flex;align-items:center;flex:none}
+.mq-word{font-family:var(--display);font-size:clamp(32px,6vw,84px);line-height:1.2;text-transform:uppercase;color:var(--rose);white-space:nowrap;letter-spacing:.01em}
+.mq-sep{flex:none;width:clamp(10px,1.2vw,16px);height:clamp(10px,1.2vw,16px);border-radius:50%;background:var(--ink);margin-inline:clamp(22px,3vw,48px);font-size:0}
+@keyframes scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-25%,0,0)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+.hero{padding-block:56px 72px}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:end}
+.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--rose-deep)}
+.hero h1{font-family:var(--display);font-size:clamp(64px,11vw,148px);line-height:.9;letter-spacing:-.01em;margin-top:18px}
+.hero .role{margin-top:22px;font-size:clamp(18px,2vw,21px);font-weight:500}
+.hero .role em{font-style:normal;color:var(--rose-deep);white-space:nowrap}
+.hero-side{display:grid;gap:22px}
+.about{font-size:17px;line-height:1.75;color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.fact{background:var(--paper);padding:16px 16px 18px}
+.fact b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(17px,1.4vw,20px);line-height:1.15;white-space:nowrap}
+.fact span{display:block;margin-top:6px;font-size:12.5px;color:var(--ink-soft);line-height:1.45}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}}
+@media (max-width:520px){.facts{grid-template-columns:1fr}}
+
+/* ---------- sommaire ---------- */
+.toc{background:var(--ink);color:var(--paper);padding-block:64px}
+.toc-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.toc h2{font-family:var(--display);font-size:clamp(38px,5vw,56px);line-height:1}
+.toc .eyebrow{color:var(--rose)}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden}
+.toc li{background:var(--ink)}
+.toc a{display:flex;flex-direction:column;justify-content:space-between;gap:26px;height:100%;padding:22px 22px 24px;text-decoration:none;transition:background .2s,color .2s}
+.toc a:hover{background:var(--rose);color:var(--ink)}
+.toc .n{font-size:13px;font-weight:600;letter-spacing:.1em;color:var(--rose)}
+.toc a:hover .n{color:var(--ink)}
+.toc .t,.toc .d{display:block}
+.toc .t{font-family:var(--display);font-size:24px;line-height:1.15}
+.toc .d{font-size:13px;opacity:.72;margin-top:4px;line-height:1.45}
+@media (max-width:900px){.toc ol{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.toc ol{grid-template-columns:1fr}.toc a{gap:10px}}
+
+/* ---------- sections ---------- */
+section.block{padding-block:88px}
+section.block + section.block{border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:1fr auto;align-items:end;gap:24px;margin-bottom:48px}
+.sec-head h2{font-family:var(--display);font-size:clamp(44px,6.5vw,84px);line-height:.95;margin-top:12px}
+.sec-head p{max-width:420px;color:var(--ink-soft);font-size:15px}
+@media (max-width:800px){.sec-head{grid-template-columns:1fr}}
+
+/* ---------- à propos ---------- */
+.about-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,80px);align-items:start}
+.portrait{position:relative;aspect-ratio:2/3;width:100%;max-width:420px;margin-bottom:28px}
+.arch,.arch-line{position:absolute;left:0;right:0;top:22%;bottom:0;border-radius:999px 999px 28px 28px}
+.arch{background:var(--rose);overflow:hidden;z-index:1}
+.arch-line{border:1.5px solid var(--ink);transform:translate(16px,16px)}
+.pop{position:absolute;inset:0;z-index:2;clip-path:inset(0 0 72% 0);pointer-events:none}
+.arch img,.pop img{position:absolute;bottom:0;left:50%;width:102%;max-width:none;height:auto;transform:translateX(-50%)}
+.pop img{filter:drop-shadow(0 -2px 10px rgba(43,34,36,.12))}
+.badge{position:absolute;z-index:3;right:-14px;bottom:-22px;width:clamp(104px,11vw,132px);aspect-ratio:1/1;border-radius:50%;background:var(--ink);box-shadow:0 8px 22px rgba(43,34,36,.22)}
+.badge-spin{width:100%;height:100%;animation:spin 26s linear infinite;transform-origin:50% 50%;will-change:transform}
+.badge-spin svg{display:block;width:100%;height:100%}
+.badge-bg{fill:var(--ink)}
+.badge-text{fill:var(--ground);font-family:var(--body);font-size:17px;font-weight:600;letter-spacing:1px}
+.badge-dot{fill:var(--rose)}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.badge-spin{animation:none}}
+.about-text{display:grid;gap:18px;min-width:0}
+.about-text h2{font-family:var(--display);font-size:clamp(40px,5.5vw,68px);line-height:1}
+.motivation{background:var(--rose);border-radius:20px;padding:clamp(22px,3vw,34px);display:grid;gap:14px;justify-items:start}
+.motivation-label{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.motivation p:not(.motivation-label){font-size:clamp(16.5px,1.6vw,18px);line-height:1.7;color:var(--ink)}
+.motivation strong{font-weight:600}
+.motivation .btn{margin-top:6px}
+.about-lead{font-size:16.5px;line-height:1.7;font-weight:500;margin-top:8px}
+.about-text > p:not(.eyebrow):not(.about-lead){color:var(--ink-soft);max-width:640px}
+.about-facts{margin:10px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.about-facts div{background:var(--paper);padding:14px 16px}
+.about-facts dt{font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--rose-deep)}
+.about-facts dd{margin:4px 0 0;font-weight:500}
+.portrait{position:sticky;top:calc(88px + env(safe-area-inset-top,0px))}
+@media (max-width:860px){.about-grid{grid-template-columns:1fr}.portrait{max-width:420px;width:calc(100% - 24px);position:relative;top:auto}}
+@media (max-width:480px){.about-facts{grid-template-columns:1fr}}
+
+/* ---------- expériences ---------- */
+.exp-feature{background:var(--rose);border-radius:24px;padding:clamp(24px,4vw,48px);display:grid;gap:34px}
+.exp-top{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.exp-type{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--ink);color:var(--paper)}
+.exp-feature h3{font-family:var(--display);font-size:clamp(40px,5.5vw,68px);line-height:1;margin-top:16px}
+.exp-feature .poste{font-size:19px;font-weight:600;margin-top:10px}
+.date{font-size:14px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;padding-top:4px}
+.exp-intro{max-width:760px;font-size:17px;line-height:1.7}
+.missions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mission{background:var(--ground);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.mission .freq{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--rose-deep)}
+.mission h4{font-family:var(--display);font-size:23px;line-height:1.15}
+.mission p{font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+.mission.wide{grid-column:span 2}
+.exp-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;font-weight:500;padding:7px 14px;border-radius:999px;border:1px solid var(--ink);background:transparent;line-height:1.2}
+@media (max-width:900px){.missions{grid-template-columns:1fr 1fr}.mission.wide{grid-column:span 2}}
+@media (max-width:600px){.missions{grid-template-columns:1fr}.mission.wide{grid-column:auto}.exp-top{grid-template-columns:1fr}}
+
+.exp-list{margin-top:18px;display:grid}
+.exp{display:grid;grid-template-columns:220px 1fr;gap:40px;padding-block:40px;border-bottom:1px solid var(--line)}
+.exp:last-child{border-bottom:0}
+.exp-meta{display:grid;gap:10px;align-content:start}
+.exp-meta .date{padding:0;color:var(--ink)}
+.tag{justify-self:start;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:999px;background:var(--rose-soft);color:var(--rose-deep)}
+.exp-body{min-width:0;display:grid;gap:16px}
+.exp-body .poste{font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--rose-deep);text-transform:uppercase}
+.exp-body h3{font-family:var(--display);font-size:clamp(30px,3.6vw,40px);line-height:1.05;margin-top:-6px}
+.exp-body > p{max-width:720px;color:var(--ink-soft)}
+.tasks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.tasks li{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:14.5px;line-height:1.55;color:var(--ink-soft)}
+.tasks li b{display:block;color:var(--ink);font-weight:600;margin-bottom:4px;font-size:15px}
+@media (max-width:760px){.exp{grid-template-columns:1fr;gap:18px}.exp-meta{grid-auto-flow:column;justify-content:start;align-items:center;gap:14px}}
+
+/* ---------- projets ---------- */
+.project{padding-block:56px;border-top:1px solid var(--line);display:grid;gap:30px}
+.project:first-of-type{border-top:0;padding-top:0}
+.p-head{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:start}
+.p-num{font-family:var(--display);font-size:clamp(46px,6vw,72px);line-height:.85;color:var(--rose)}
+.p-title .tag{margin-bottom:10px;display:inline-block}
+.ctx{margin-top:8px;font-size:14px;font-style:italic;color:var(--rose-deep)}
+.cv-btn{margin-top:22px}
+.p-title h3{font-family:var(--display);font-size:clamp(30px,4vw,48px);line-height:1.02}
+.p-head .btn{margin-top:6px}
+.p-body{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.p-body.stack{grid-template-columns:1fr}
+.p-text{background:var(--rose-soft);border-radius:20px;padding:clamp(22px,3vw,34px);display:grid;gap:16px;min-width:0}
+.stats{display:flex;flex-wrap:wrap;gap:10px}
+.stats span{display:flex;align-items:baseline;gap:8px;background:var(--rose);border-radius:12px;padding:10px 14px;font-size:13px;font-weight:600}
+.stats b{font-family:var(--display);font-weight:400;font-size:30px;line-height:1}
+.p-text h4{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep)}
+.p-text p{font-size:16px;line-height:1.72}
+.p-text ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.p-text li{padding-left:22px;position:relative;font-size:15px;line-height:1.55}
+.p-text li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--rose)}
+.p-text.dark{background:var(--ink);color:var(--paper)}
+.p-text.dark h4{color:var(--rose)}
+.gal{display:grid;gap:14px;min-width:0}
+.gal.g3{grid-template-columns:repeat(3,1fr)}
+.shot{margin:0;display:grid;gap:8px;min-width:0}
+.shot button{all:unset;cursor:zoom-in;display:block;border-radius:16px;overflow:hidden;background:var(--rose-soft);position:relative}
+.shot button:focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.shot button:hover img{transform:scale(1.03)}
+.shot .zoom{position:absolute;right:12px;bottom:12px;background:rgba(43,34,36,.78);color:var(--paper);font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;opacity:0;transition:opacity .2s}
+.shot button:hover .zoom,.shot button:focus-visible .zoom{opacity:1}
+.shot figcaption{font-size:13px;color:var(--ink-soft)}
+.sq button{aspect-ratio:1/1}
+.nat img{height:auto}
+.gal.film{grid-template-columns:1.7fr 1fr 1fr}
+.gal.film button{height:clamp(260px,34vw,480px)}
+.shot.top img{object-position:50% 20%}
+.p-body.stack .p-text{max-width:none}
+.tall button{aspect-ratio:700/990}
+.contain img{height:auto;object-fit:contain;background:#0B1222}
+.full{grid-column:1/-1}
+.video-card{background:var(--ink);color:var(--paper);border-radius:20px;padding:clamp(24px,3vw,36px);display:grid;gap:18px;align-content:space-between;min-height:320px;text-decoration:none;transition:background .2s}
+.video-card:hover{background:#3a2d30}
+.video-card{position:relative;overflow:hidden;isolation:isolate}
+.vc-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:.55;transition:opacity .3s,transform .5s}
+.video-card:hover .vc-thumb{opacity:.7;transform:scale(1.03)}
+.video-stack{display:grid;grid-template-columns:1fr 1fr;gap:14px;min-width:0}
+.video-stack .video-card{min-height:280px;padding:22px}
+.video-stack .video-card b{font-size:clamp(24px,2.4vw,30px)}
+.video-stack.single{grid-template-columns:1fr}
+.video-stack.single .video-card{min-height:320px}
+.video-card.ig{background:linear-gradient(160deg,var(--rose-deep),var(--ink) 75%)}
+.video-card.ig:hover{background:linear-gradient(160deg,var(--rose-deep),#3a2d30 75%)}
+@media (max-width:420px){.video-stack .video-card{min-height:220px}}
+.video-card .vc-text{text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.video-card .play{width:64px;height:64px;border-radius:50%;background:var(--rose);display:grid;place-items:center}
+.video-card .play svg{width:22px;height:22px;margin-left:3px}
+.video-card b{font-family:var(--display);font-weight:400;font-size:clamp(28px,3vw,36px);line-height:1.1}
+.video-card span{font-size:14px;opacity:.75}
+@media (max-width:860px){.p-body{grid-template-columns:1fr}.p-head{grid-template-columns:auto 1fr}.p-head .btn{grid-column:1/-1;justify-self:start;margin-top:0}}
+@media (max-width:560px){.gal.g3,.gal.film{grid-template-columns:1fr 1fr}.gal.g3 .shot:first-child{grid-column:1/-1}.gal.film button{height:auto;aspect-ratio:3/4}.gal.film .shot:first-child button{aspect-ratio:3/2}}
+
+.band{background:var(--rose-soft)}
+.band .project{border-top-color:var(--line)}
+.band .p-text{background:var(--paper)}
+
+/* ---------- compétences ---------- */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.skill-col{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:28px;display:grid;gap:22px;align-content:start}
+.skill-col h3{font-family:var(--display);font-size:30px;line-height:1.05;padding-bottom:16px;border-bottom:2px solid var(--rose)}
+.skill{display:grid;gap:4px}
+.skill b{font-weight:600;font-size:15.5px}
+.skill p{font-size:14px;color:var(--ink-soft);line-height:1.55}
+.logos{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.logos i{font-style:normal;font-size:12px;font-weight:600;padding:4px 9px;border-radius:6px;background:var(--rose-soft);color:var(--rose-deep)}
+@media (max-width:900px){.skills{grid-template-columns:1fr}}
+
+/* ---------- formation ---------- */
+.edu{display:grid;gap:0;border-top:1px solid var(--ink)}
+.edu-row{display:grid;grid-template-columns:170px 1fr auto;gap:28px;padding-block:28px;border-bottom:1px solid var(--line);align-items:baseline}
+.edu-row .yr{font-family:var(--display);font-size:26px;font-variant-numeric:tabular-nums}
+.edu-row h3{font-family:var(--display);font-size:clamp(24px,2.8vw,32px);line-height:1.1}
+.edu-row p{color:var(--ink-soft);margin-top:6px}
+.edu-row .lvl{font-size:13px;font-weight:600;color:var(--rose-deep);white-space:nowrap}
+.edu-row.now{background:linear-gradient(90deg,var(--rose-soft),transparent 70%)}
+.edu-row.now .yr{padding-left:14px}
+@media (max-width:700px){.edu-row{grid-template-columns:1fr;gap:6px}.edu-row.now .yr{padding-left:0}.edu-row.now{padding-inline:12px}}
+
+/* ---------- langues / intérêts ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel{border-radius:20px;padding:clamp(24px,3vw,36px);display:grid;gap:20px;align-content:start}
+.panel h3{font-family:var(--display);font-size:34px;line-height:1}
+.panel.rose{background:var(--rose)}
+.panel.ink{background:var(--ink);color:var(--paper)}
+.lang{display:grid;gap:8px}
+.lang-top{display:flex;justify-content:space-between;gap:12px;font-weight:600}
+.lang-top span:last-child{font-weight:500}
+.bar{height:6px;border-radius:999px;background:rgba(43,34,36,.16);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);border-radius:999px}
+.lang small{font-size:13px;opacity:.8}
+.ints{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.int{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);transition:background .2s,transform .2s,border-color .2s;min-width:0}
+.int:hover{background:var(--rose);border-color:var(--rose);color:var(--ink);transform:translateY(-2px)}
+.int-ico{flex:none;width:42px;height:42px;border-radius:50%;background:var(--rose);color:var(--ink);display:grid;place-items:center;transition:background .2s,color .2s}
+.int:hover .int-ico{background:var(--ink);color:var(--rose)}
+.int-ico svg{width:20px;height:20px}
+.int-name{font-family:var(--display);font-size:clamp(15px,1.35vw,19px);line-height:1.1;white-space:nowrap}
+.int.wide{grid-column:1/-1;padding-block:18px}
+.int.wide .int-ico{width:52px;height:52px}
+.int.wide .int-ico svg{width:24px;height:24px}
+.int.wide .int-name{font-size:clamp(24px,2.4vw,30px)}
+@media (max-width:520px){.int{padding:10px;gap:8px}.int-ico{width:32px;height:32px}.int-ico svg{width:16px;height:16px}.int-name{font-size:14.5px}}
+.panel.ink .chip{border-color:rgba(255,255,255,.35);font-size:14px;padding:9px 16px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+
+/* ---------- contact ---------- */
+.contact{background:var(--rose);padding-block:80px 40px}
+.contact .eyebrow{color:var(--ink);margin-bottom:14px}
+.contact .lead{font-size:clamp(17px,2vw,20px);max-width:620px;margin-bottom:48px}
+.contact-grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;padding-top:40px;border-top:1.5px solid var(--ink)}
+.contact .name{font-family:var(--display);font-size:clamp(72px,12vw,160px);line-height:.85}
+.coords{display:grid;gap:8px;margin-top:24px}
+.coords a{font-size:clamp(18px,2vw,22px);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:10px;width:fit-content;border-bottom:1.5px solid transparent}
+.coords a:hover{border-bottom-color:var(--ink)}
+.coords svg{width:18px;height:18px;flex:none}
+.school{text-align:right;display:grid;gap:6px}
+.school b{font-family:var(--display);font-weight:400;font-size:clamp(40px,5vw,60px);line-height:1}
+.school span{font-size:15px}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:64px;font-size:13px;color:var(--ink)}
+.legal a{text-decoration:none;font-weight:600}
+@media (max-width:760px){.contact-grid{grid-template-columns:1fr}.school{text-align:left}}
+
+/* ---------- frise ---------- */
+.exp-list{position:relative}
+.exp-list::before{content:"";position:absolute;left:7px;top:46px;bottom:46px;width:2px;background:linear-gradient(var(--rose),var(--rose-soft))}
+.exp-meta{position:relative;padding-left:36px}
+.exp-meta::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border-radius:50%;background:var(--ground);border:3px solid var(--rose);box-sizing:border-box;transition:background .3s}
+.exp:hover .exp-meta::before{background:var(--rose)}
+.exp-list-label{display:flex;align-items:center;gap:12px;margin-top:40px;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--rose-deep)}
+.exp-list-label::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--rose)}
+@media (max-width:760px){.exp-list::before{top:40px}}
+
+/* ---------- menu actif ---------- */
+.nav ul a{position:relative;padding-block:6px}
+.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--rose);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.nav ul a.active{color:var(--ink)}
+.nav ul a.active::after{transform:scaleX(1)}
+
+/* ---------- apparitions ---------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ---------- lightbox ---------- */
+.lb[hidden]{display:none}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(24,18,20,.92);display:grid;grid-template-rows:1fr auto;padding:clamp(16px,4vw,48px);gap:14px}
+.lb img{max-width:100%;max-height:100%;margin:auto;object-fit:contain;border-radius:8px;align-self:center;justify-self:center;min-height:0}
+.lb p{color:#F3ECEA;text-align:center;font-size:14px}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.lb-nav:hover{background:var(--rose);color:var(--ink)}
+.lb-nav svg{width:22px;height:22px}
+.lb-prev{left:clamp(8px,2vw,24px)}.lb-next{right:clamp(8px,2vw,24px)}
+.lb-count{color:#cfc3c1;font-size:12.5px;letter-spacing:.1em;text-align:center}
+@media (max-width:600px){.lb-nav{top:auto;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:none;width:44px;height:44px}}
+.lb-close{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:16px;width:44px;height:44px;border-radius:50%;border:0;background:var(--rose);color:var(--ink);font-size:24px;line-height:1;cursor:pointer}
+.to-top[hidden]{display:none}
+.to-top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;height:40px;padding-inline:12px 16px;border-radius:999px;background:var(--paper);color:var(--rose-deep);border:1.5px solid var(--rose);display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;text-decoration:none;box-shadow:0 4px 14px rgba(138,90,94,.18);transition:background .2s,color .2s}
+.to-top svg{width:14px;height:14px}
+.to-top:hover,.to-top:focus-visible{background:var(--rose);color:var(--ink)}
+</style>
+
+</head>
+<body>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" data-go="top" role="link" tabindex="0"><span class="dot" aria-hidden="true"></span>Clara Joly</a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a data-go="a-propos" role="link" tabindex="0">À propos</a></li>
+        <li><a data-go="experiences" role="link" tabindex="0">Expériences</a></li>
+        <li><a data-go="projets-pro" role="link" tabindex="0">Projets professionnels</a></li>
+        <li><a data-go="projets-efap" role="link" tabindex="0">Projets EFAP</a></li>
+        <li><a data-go="competences" role="link" tabindex="0">Compétences</a></li>
+        <li><a data-go="formation" role="link" tabindex="0">Formation</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-rose" data-go="contact" role="link" tabindex="0">Me contacter</a>
+  </div>
+</header>
+
+<main>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track"><div class="mq-group"><span class="mq-word">Communication</span><span class="mq-sep"></span><span class="mq-word">Marketing</span><span class="mq-sep"></span><span class="mq-word">Événementiel</span><span class="mq-sep"></span></div><div class="mq-group"><span class="mq-word">Communication</span><span class="mq-sep"></span><span class="mq-word">Marketing</span><span class="mq-sep"></span><span class="mq-word">Événementiel</span><span class="mq-sep"></span></div><div class="mq-group"><span class="mq-word">Communication</span><span class="mq-sep"></span><span class="mq-word">Marketing</span><span class="mq-sep"></span><span class="mq-word">Événementiel</span><span class="mq-sep"></span></div><div class="mq-group"><span class="mq-word">Communication</span><span class="mq-sep"></span><span class="mq-word">Marketing</span><span class="mq-sep"></span><span class="mq-word">Événementiel</span><span class="mq-sep"></span></div></div>
+</div>
+
+<section class="hero" id="accueil">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Portfolio · Communication &amp; Événementiel</p>
+      <h1>Clara<br>Joly</h1>
+      <p class="role">Recherche une alternance en événementiel <br><em>Jusqu’en septembre 2028</em></p>
+    </div>
+    <div class="hero-side">
+      <p class="about">Étudiante de 21 ans en 4ᵉ année à l’EFAP Paris en Communication &amp; Marketing, je suis actuellement en alternance et souhaite poursuivre mon parcours dans le secteur de l’événementiel jusqu’en septembre 2028.</p>
+      <div class="facts">
+        <div class="fact"><b>Dès maintenant</b><span>Disponible pour démarrer</span></div>
+        <div class="fact"><b>3 sem. / 1 sem.</b><span>Rythme entreprise / école</span></div>
+        <div class="fact"><b>Sept. 2028</b><span>Fin de l’alternance recherchée</span></div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-ink" data-go="projets-pro" role="link" tabindex="0">Voir mes projets
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+        <a class="btn btn-line" data-go="contact" role="link" tabindex="0">Me contacter</a>
+        <a class="btn btn-line" href="CV-Clara-Joly.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Télécharger mon CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="toc" id="sommaire" aria-labelledby="toc-title">
+  <div class="wrap">
+    <div class="toc-head">
+      <div><p class="eyebrow">Navigation</p><h2 id="toc-title">Sommaire</h2></div>
+    </div>
+    <ol>
+      <li><a data-go="a-propos" role="link" tabindex="0"><span class="n">01</span><span><span class="t">À propos</span><span class="d">Qui je suis, mon parcours, mes objectifs</span></span></a></li>
+      <li><a data-go="experiences" role="link" tabindex="0"><span class="n">02</span><span><span class="t">Expériences</span><span class="d">Astonfly, Clair Group, Jourdan, ASCORA</span></span></a></li>
+      <li><a data-go="projets-pro" role="link" tabindex="0"><span class="n">03</span><span><span class="t">Projets professionnels</span><span class="d">Film, cérémonies, gala, réseaux sociaux</span></span></a></li>
+      <li><a data-go="projets-efap" role="link" tabindex="0"><span class="n">04</span><span><span class="t">Projets EFAP</span><span class="d">Be Nuts, refonte UI/UX, CV vidéo</span></span></a></li>
+      <li><a data-go="competences" role="link" tabindex="0"><span class="n">05</span><span><span class="t">Compétences</span><span class="d">Événementiel, communication, outils</span></span></a></li>
+      <li><a data-go="formation" role="link" tabindex="0"><span class="n">06</span><span><span class="t">Formation</span><span class="d">De l’EFAP au brevet des collèges</span></span></a></li>
+      <li><a data-go="langues" role="link" tabindex="0"><span class="n">07</span><span><span class="t">Langues &amp; intérêts</span><span class="d">Anglais B2-C1, espagnol, passions</span></span></a></li>
+      <li><a data-go="contact" role="link" tabindex="0"><span class="n">08</span><span><span class="t">Contact</span><span class="d">Téléphone, e-mail et LinkedIn</span></span></a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= À PROPOS ================= -->
+<section class="block about-sec" id="a-propos">
+  <div class="wrap about-grid">
+    <div class="portrait">
+      <span class="arch-line" aria-hidden="true"></span>
+      <span class="arch"><img src="images/portrait.png" alt="Portrait de Clara Joly"></span>
+      <span class="pop" aria-hidden="true"><img src="images/portrait.png" alt=""></span>
+      <div class="badge" aria-hidden="true"><div class="badge-spin"><svg viewBox="0 0 200 200" width="200" height="200">
+        <defs><path id="circ" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+        <circle cx="100" cy="100" r="98" class="badge-bg"/>
+        <text class="badge-text"><textPath href="#circ" textLength="462">RECHERCHE ALTERNANCE · SEPT. 2028 · </textPath></text>
+        <circle cx="100" cy="100" r="9" class="badge-dot"/>
+      </svg></div></div>
+    </div>
+    <div class="about-text">
+      <p class="eyebrow">01 · À propos</p>
+      <h2>Enchantée, je suis Clara</h2>
+      <div class="motivation">
+        <p class="motivation-label">Pourquoi je recherche une nouvelle alternance</p>
+        <p>Je recherche une <strong>alternance jusqu’en septembre 2028</strong> pour vivre une nouvelle aventure professionnelle. Mes stages et mon alternance actuelle m’ont énormément appris : organiser des événements de A à Z, coordonner des équipes et des prestataires, communiquer auprès d’une communauté.</p>
+        <p>Aujourd’hui, j’ai envie d’aller plus loin : découvrir <strong>un nouveau secteur, de nouvelles missions et un nouveau cadre de travail</strong>, au sein d’une équipe avec laquelle je pourrai continuer à évoluer. Mon ambition me pousse à me dépasser et à me challenger, pour mettre mes compétences au service de nouveaux projets.</p>
+        <p>C’est cette motivation qui m’amène à tenter ma chance ailleurs. J’espère avoir l’occasion d’échanger prochainement avec vous au sujet de ma candidature.</p>
+        <a class="btn btn-ink" data-go="contact" role="link" tabindex="0">Échanger avec moi
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <p class="about-lead">Étudiante de 21 ans en 4ᵉ année à l’EFAP Paris en Communication &amp; Marketing, je suis actuellement en alternance et souhaite poursuivre mon parcours dans le secteur de l’événementiel jusqu’en septembre 2028.</p>
+      <p>Après une première année de licence en Sciences Économiques et Sociales à l’Université Paris Cité, j’ai rejoint l’EFAP en 2023. En parallèle, mes stages chez Jourdan puis Clair Group m’ont fait découvrir la communication digitale, la création de contenus et l’organisation de salons et de portes ouvertes.</p>
+      <p>Depuis août 2026, je suis Community and Event Coordinator chez Astonfly, école de pilotage : j’y organise les cérémonies, le gala, les rentrées et les événements de la vie étudiante, et je pilote la refonte de la plateforme carrière Astonjob.</p>
+      <dl class="about-facts">
+        <div><dt>École</dt><dd>EFAP Paris · 4ᵉ année</dd></div>
+        <div><dt>Alternance actuelle</dt><dd>Astonfly</dd></div>
+        <div><dt>Objectif</dt><dd>Alternance dans l’événementiel, jusqu’en sept. 2028</dd></div>
+        <div><dt>Langues</dt><dd>Français, anglais B2-C1, espagnol A2</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPÉRIENCES ================= -->
+<section class="block" id="experiences">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">02 · Parcours professionnel</p><h2>Expériences</h2></div>
+      <p>De l’administratif à la coordination d’événements : chaque expérience m’a appris à organiser, communiquer et tenir les délais.</p>
+    </div>
+
+    <article class="exp-feature">
+      <div class="exp-top">
+        <div>
+          <span class="exp-type">Alternance</span>
+          <h3>Astonfly</h3>
+          <p class="poste">Community and Event Coordinator</p>
+        </div>
+        <p class="date">août 2026 – aujourd’hui</p>
+      </div>
+      <p class="exp-intro">Au sein d’Astonfly, école de pilotage, je coordonne les événements qui rythment l’année des élèves et j’anime la communauté des pilotes et des Alumni. Mon rôle couvre toute la chaîne : conception, invitations, logistique, coordination le jour J, puis amélioration des formats d’une édition à l’autre.</p>
+      <div class="missions">
+        <div class="mission">
+          <span class="freq">Vie étudiante</span>
+          <h4>Afterworks, masterclasses &amp; podcast</h4>
+          <p>Organiser les événements de la vie étudiante et améliorer leur déroulement au fil des éditions.</p>
+        </div>
+        <div class="mission">
+          <span class="freq">4 fois par an</span>
+          <h4>Cérémonie de remise des ailes</h4>
+          <p>Piloter la cérémonie de bout en bout, de l’envoi des invitations à la coordination du jour J.</p>
+        </div>
+        <div class="mission">
+          <span class="freq">2 fois par an · annuel</span>
+          <h4>Remise des diplômes &amp; gala</h4>
+          <p>Organiser la remise des diplômes et le gala annuel, du choix du lieu jusqu’à la gestion des inscriptions.</p>
+        </div>
+        <div class="mission">
+          <span class="freq">4 rentrées par an</span>
+          <h4>Rentrées des élèves</h4>
+          <p>Accompagner chaque rentrée : accueil des élèves, communication, semaine d’intégration et logistique. La rentrée de septembre, la plus importante, accueille 60 élèves.</p>
+        </div>
+        <div class="mission wide">
+          <span class="freq">Projet digital</span>
+          <h4>Plateforme carrière Astonjob</h4>
+          <p>Piloter la refonte et assurer la gestion quotidienne d’Astonjob, la plateforme carrière dédiée aux pilotes et aux Alumni Astonfly : réflexion sur l’expérience utilisateur, mise à jour des contenus et suivi de la plateforme.</p>
+        </div>
+      </div>
+      <div class="exp-foot">
+        <div class="chips">
+          <span class="chip">Organisation d’événements</span><span class="chip">Coordination de prestataires</span><span class="chip">Logistique</span><span class="chip">Community management</span><span class="chip">UX</span>
+        </div>
+        <a class="btn btn-ink" data-go="projets-pro" role="link" tabindex="0">Voir les projets associés
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </article>
+
+    <p class="exp-list-label">Parcours précédent</p>
+    <div class="exp-list">
+      <article class="exp">
+        <div class="exp-meta"><p class="date">juin – juillet 2026</p><span class="tag">Emploi saisonnier</span></div>
+        <div class="exp-body">
+          <p class="poste">Assistante administrative</p>
+          <h3>ASCORA</h3>
+          <p>Un poste en back-office qui demande rigueur et fiabilité : le suivi des dossiers clients et la mise à jour des données au quotidien.</p>
+          <ul class="tasks">
+            <li><b>Gestion des sinistres clients</b>Suivi et traitement des dossiers de sinistres des clients.</li>
+            <li><b>Tri et classement des contrats</b>Organisation des contrats pour un accès rapide et fiable.</li>
+            <li><b>Mise à jour des fiches clients</b>Saisie et actualisation des informations clients sur le logiciel ADHOC.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="exp">
+        <div class="exp-meta"><p class="date">septembre – décembre 2025</p><span class="tag">Stage</span></div>
+        <div class="exp-body">
+          <p class="poste">Assistante Communication &amp; Marketing</p>
+          <h3>Clair Group</h3>
+          <p>Un stage tourné vers la communication digitale et l’événementiel, entre création de contenus et organisation de rendez-vous avec le public.</p>
+          <ul class="tasks">
+            <li><b>Réseaux sociaux</b>Gestion des comptes et publication des contenus.</li>
+            <li><b>Contenus photo &amp; vidéo</b>Couverture des événements en photo et en vidéo pour alimenter la communication.</li>
+            <li><b>Salons &amp; portes ouvertes</b>Participation à l’organisation des salons et des journées portes ouvertes.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="exp">
+        <div class="exp-meta"><p class="date">janvier – mars 2025</p><span class="tag">Stage</span></div>
+        <div class="exp-body">
+          <p class="poste">Assistante Communication &amp; Marketing</p>
+          <h3>Clair Group</h3>
+          <p>Premier stage chez Clair Group, centré sur la communication interne et la production de contenu vidéo.</p>
+          <ul class="tasks">
+            <li><b>Communication RH</b>Réalisation de supports de communication liés aux ressources humaines.</li>
+            <li><b>Tournage vidéo</b>Participation à l’organisation d’un tournage vidéo et présence sur le plateau.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="exp">
+        <div class="exp-meta"><p class="date">avril – mai 2024</p><span class="tag">Stage</span></div>
+        <div class="exp-body">
+          <p class="poste">Assistante Communication</p>
+          <h3>Jourdan</h3>
+          <p>Une première expérience en communication, entre animation des réseaux sociaux et création graphique.</p>
+          <ul class="tasks">
+            <li><b>Gestion des réseaux sociaux</b>Création et publication de contenus sur les réseaux de l’entreprise.</li>
+            <li><b>Création d’affiches</b>Conception de visuels et d’affiches de communication.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="exp">
+        <div class="exp-meta"><p class="date">juin – juillet 2023</p><span class="tag">Emploi saisonnier</span></div>
+        <div class="exp-body">
+          <p class="poste">Assistante administrative</p>
+          <h3>ASCORA</h3>
+          <p>Ma première expérience professionnelle, qui m’a appris les bases de l’organisation et du classement documentaire.</p>
+          <ul class="tasks">
+            <li><b>Tri, classement &amp; archivage</b>Traitement et archivage des documents de l’entreprise.</li>
+            <li><b>Organisation des dossiers</b>Structuration des dossiers pour faciliter leur suivi.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJETS PROFESSIONNELS ================= -->
+<section class="block band" id="projets-pro">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">03 · Sur le terrain</p><h2>Projets professionnels</h2></div>
+      <p>Des événements et des contenus menés pour Astonfly, pendant mon stage chez Clair Group puis mon alternance. Cliquez sur une image pour l’agrandir et sur « Regarder » pour voir la vidéo.</p>
+    </div>
+
+    <article class="project">
+      <div class="p-head">
+        <span class="p-num">01</span>
+        <div class="p-title"><span class="tag">Clair Group · Vidéo</span><h3>Film promotionnel Astonfly</h3><p class="ctx">Réalisé pendant mon stage chez Clair Group, pour Astonfly</p></div>
+        <a class="btn btn-ink" href="https://youtu.be/JbFjWgKtJbI" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Regarder</a>
+      </div>
+      <div class="gal g3 film">
+        <figure class="shot"><button type="button" data-cap="Préparation du tournage avec l’équipe"><img src="images/photo-1.jpg" loading="lazy" decoding="async" alt="Tournage du film promotionnel Astonfly, équipe en discussion avec le matériel"><span class="zoom">Agrandir</span></button></figure>
+        <figure class="shot top"><button type="button" data-cap="Mise en place d’une scène dans le hangar Astonfly"><img src="images/photo-2.jpg" loading="lazy" decoding="async" alt="Équipe Astonfly lors de la soirée de tournage"><span class="zoom">Agrandir</span></button></figure>
+        <figure class="shot top"><button type="button" data-cap="L’équipe de tournage réunie"><img src="images/photo-3.jpg" loading="lazy" decoding="async" alt="Photo de groupe avec l'équipe de tournage"><span class="zoom">Agrandir</span></button></figure>
+      </div>
+      <div class="p-body">
+        <div class="p-text">
+          <h4>Le projet</h4>
+          <p>Production d’une vidéo longue pour promouvoir l’école.</p>
+        </div>
+        <div class="p-text">
+          <h4>Ma contribution</h4>
+          <ul>
+            <li>Assistance à ma tutrice dans l’organisation du tournage</li>
+            <li>Présence sur le plateau pendant tout le tournage</li>
+            <li>Suivi du bon déroulement des prises de vue</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="p-head">
+        <span class="p-num">02</span>
+        <div class="p-title"><span class="tag">Astonfly · Cérémonie</span><h3>Remise des ailes</h3><p class="ctx">Réalisé pendant mon alternance chez Astonfly</p></div>
+        <a class="btn btn-ink" href="https://www.instagram.com/reel/DalE_XSjorS/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Regarder</a>
+      </div>
+      <div class="p-body stack">
+        <figure class="shot nat"><button type="button" data-cap="Les promotions réunies lors de la remise des ailes"><img src="images/photo-4.jpg" loading="lazy" decoding="async" alt="Élèves pilotes Astonfly réunis lors de la cérémonie de remise des ailes"><span class="zoom">Agrandir</span></button></figure>
+        <div class="p-text">
+          <h4>Le projet</h4>
+          <div class="stats"><span><b>≈ 100</b>participants</span><span><b>4</b>cérémonies par an</span></div>
+          <p>Une cérémonie organisée 4 fois par an pour célébrer les élèves pilotes. J’en gère l’organisation de A à Z.</p>
+          <h4>Ma contribution</h4>
+          <ul>
+            <li>Envoi des invitations et suivi de la liste des invités</li>
+            <li>Réservation et préparation de la salle</li>
+            <li>Construction du déroulé de la cérémonie</li>
+            <li>Coordination des prestataires</li>
+            <li>Coordination de l’événement le jour J</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="p-head">
+        <span class="p-num">03</span>
+        <div class="p-title"><span class="tag">Clair Group · Soirée</span><h3>Gala annuel Astonfly</h3><p class="ctx">Réalisé pendant mon stage chez Clair Group, pour Astonfly</p></div>
+        <a class="btn btn-ink" href="https://www.instagram.com/reel/DLF1urQtIv7/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Regarder</a>
+      </div>
+      <div class="p-body">
+        <div class="p-text">
+          <h4>Le projet</h4>
+          <div class="stats"><span><b>300</b>participants</span></div>
+          <p>Le grand rendez-vous annuel de l’école. J’ai participé à son organisation, de la préparation jusqu’au jour J.</p>
+          <h4>Ma contribution</h4>
+          <ul>
+            <li>Aide au choix du lieu, de la date et du programme</li>
+            <li>Gestion des inscriptions</li>
+            <li>Présence et soutien à l’organisation le jour J</li>
+          </ul>
+        </div>
+        <figure class="shot nat"><button type="button" data-cap="Animation musicale pendant le gala Astonfly"><img src="images/photo-5.jpg" loading="lazy" decoding="async" alt="Saxophoniste sur scène au gala Astonfly"><span class="zoom">Agrandir</span></button></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="p-head">
+        <span class="p-num">04</span>
+        <div class="p-title"><span class="tag">Clair Group · Réseaux sociaux</span><h3>Contenus vidéo pour les réseaux sociaux</h3><p class="ctx">Réalisé pendant mon stage chez Clair Group, pour Astonfly</p></div>
+      </div>
+      <div class="p-body">
+        <div class="p-text">
+          <h4>Le projet</h4>
+          <p>J’ai créé et participé à plusieurs contenus vidéo pour les réseaux sociaux de l’école. En voici un exemple.</p>
+          <h4>Ma contribution</h4>
+          <ul>
+            <li>Participation devant la caméra</li>
+            <li>Aide sur certains montages simples</li>
+          </ul>
+        </div>
+        <div class="video-stack single">
+        <a class="video-card" href="https://youtube.com/shorts/XP-OaA6UpWM" target="_blank" rel="noopener">
+          <img class="vc-thumb" src="https://i.ytimg.com/vi/XP-OaA6UpWM/oardefault.jpg" alt="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/XP-OaA6UpWM/hqdefault.jpg'}else{this.remove()}">
+          <span class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vc-text"><b>Un exemple en vidéo</b><br><span>Regarder sur YouTube</span></span>
+        </a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= PROJETS EFAP ================= -->
+<section class="block" id="projets-efap">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">04 · En école</p><h2>Projets EFAP</h2></div>
+      <p>Des projets menés pendant ma formation à l’EFAP, entre marketing, vidéo et design d’interface.</p>
+    </div>
+
+    <article class="project">
+      <div class="p-head">
+        <span class="p-num">01</span>
+        <div class="p-title"><span class="tag">EFAP · Marketing événementiel</span><h3>Mail d’invitation vidéo pour Be Nuts</h3></div>
+        <a class="btn btn-ink" href="https://youtu.be/rs_axSPut1k" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Regarder</a>
+      </div>
+      <div class="p-body">
+        <figure class="shot tall"><button type="button" data-cap="Affiche d’invitation « Le casse du siècle » pour Be Nuts"><img src="images/photo-6.jpg" loading="lazy" decoding="async" alt="Affiche d'invitation Be Nuts, Le casse du siècle"><span class="zoom">Agrandir</span></button></figure>
+        <div class="p-text">
+          <h4>Le brief</h4>
+          <p>Imaginer un mail d’invitation pour la marque Be Nuts. Plutôt qu’un mail classique, j’ai proposé une version plus visuelle et originale, sous forme de vidéo.</p>
+          <p><strong>J’ai porté la vidéo de A à Z : c’est moi que l’on voit à l’écran, et j’en ai assuré toute la production.</strong></p>
+          <h4>Ce que j’ai réalisé</h4>
+          <ul>
+            <li>Écriture du scénario</li>
+            <li>Création de l’affiche d’invitation « Le casse du siècle »</li>
+            <li>Tournage et montage de la vidéo</li>
+            <li>Un concept immersif inspiré de l’escape game pour transformer une invitation en expérience</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="p-head">
+        <span class="p-num">02</span>
+        <div class="p-title"><span class="tag">EFAP · UI/UX</span><h3>Refonte de la page « Escort Boys » sur Prime Video</h3></div>
+      </div>
+      <div class="p-body">
+        <div class="p-text">
+          <h4>Le projet</h4>
+          <p>Audit et refonte UI/UX de la page de la série « Escort Boys » sur Amazon Prime Video, en trois étapes : wireframes papier, analyse de la version actuelle, puis maquette d’amélioration sur Figma.</p>
+        </div>
+        <div class="p-text">
+          <h4>La démarche</h4>
+          <ul>
+            <li>Identification des points de friction de l’interface existante</li>
+            <li>Idées d’amélioration posées à la main en wireframes</li>
+            <li>Maquette détaillée sur Figma, avec une navigation et une hiérarchie visuelle repensées</li>
+          </ul>
+        </div>
+        <figure class="shot full contain"><button type="button" data-cap="Étape 1 · Wireframes papier"><img src="images/photo-7.jpg" loading="lazy" decoding="async" alt="Wireframes papier de la page Escort Boys"><span class="zoom">Agrandir</span></button><figcaption>Étape 1 · Wireframes papier</figcaption></figure>
+        <figure class="shot full contain"><button type="button" data-cap="Étape 2 · La page actuelle sur Prime Video"><img src="images/photo-8.jpg" loading="lazy" decoding="async" alt="Captures de la page Escort Boys actuelle sur Amazon Prime Video"><span class="zoom">Agrandir</span></button><figcaption>Étape 2 · La page actuelle sur Prime Video</figcaption></figure>
+        <figure class="shot full contain"><button type="button" data-cap="Étape 3 · Maquette d’amélioration sur Figma"><img src="images/photo-9.jpg" loading="lazy" decoding="async" alt="Maquette d'amélioration UI/UX réalisée sur Figma"><span class="zoom">Agrandir</span></button><figcaption>Étape 3 · Maquette d’amélioration sur Figma</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="p-head">
+        <span class="p-num">03</span>
+        <div class="p-title"><span class="tag">EFAP · Motion design</span><h3>CV vidéo en motion design</h3></div>
+        <a class="btn btn-ink" href="https://youtu.be/OBAAsRB5wyw" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Regarder</a>
+      </div>
+      <div class="p-body">
+        <div class="p-text">
+          <h4>Le projet</h4>
+          <p>Un CV vidéo animé pour présenter mon parcours et mes compétences de façon dynamique et visuelle, en alternative au CV papier.</p>
+          <h4>Ce que j’ai réalisé</h4>
+          <ul>
+            <li>Écriture du script</li>
+            <li>Conception graphique des animations</li>
+            <li>Montage sur logiciel de motion design</li>
+          </ul>
+        </div>
+        <figure class="shot nat"><button type="button" data-cap="Visuel du CV vidéo"><img src="images/photo-10.jpg" loading="lazy" decoding="async" alt="Clara Joly devant un avion Astonfly"><span class="zoom">Agrandir</span></button></figure>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= COMPÉTENCES ================= -->
+<section class="block band" id="competences">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">05 · Savoir-faire</p><h2>Compétences</h2></div>
+      <p>Ce que je mets en pratique au quotidien, du terrain événementiel aux outils de création.</p>
+    </div>
+    <div class="skills">
+      <div class="skill-col">
+        <h3>Événementiel</h3>
+        <div class="skill"><b>Organisation d’événements</b><p>Cérémonies de remise des ailes, remises des diplômes, gala annuel, afterworks et masterclasses chez Astonfly ; salons et portes ouvertes chez Clair Group.</p></div>
+        <div class="skill"><b>Coordination de prestataires</b><p>Recherche de lieux, consultation des prestataires et suivi jusqu’au jour J.</p></div>
+        <div class="skill"><b>Gestion logistique</b><p>Préparation des espaces, protocole, accueil des invités et organisation des 4 rentrées annuelles.</p></div>
+      </div>
+      <div class="skill-col">
+        <h3>Communication &amp; digital</h3>
+        <div class="skill"><b>Stratégie de communication</b><p>Formats et calendriers de publication pensés en lien avec les objectifs de l’école.</p></div>
+        <div class="skill"><b>Community management &amp; réseaux sociaux</b><p>Gestion de comptes, création de contenus photo et vidéo, animation de la communauté des élèves et Alumni.</p></div>
+        <div class="skill"><b>Gestion de projet digital</b><p>Refonte de plateforme et UX : pilotage de la refonte d’Astonjob, refonte UI/UX d’une page Prime Video.</p></div>
+      </div>
+      <div class="skill-col">
+        <h3>Outils</h3>
+        <div class="skill"><b>Suite Adobe</b><p>Création d’affiches, de visuels et montage vidéo.</p>
+          <div class="logos"><i>Photoshop</i><i>Illustrator</i><i>InDesign</i><i>Premiere Pro</i></div></div>
+        <div class="skill"><b>Outils d’IA</b><p>Génération de contenu et retouche d’images.</p></div>
+        <div class="skill"><b>Pack Office</b><p>Rédaction de documents et supports de présentation.</p>
+          <div class="logos"><i>Word</i><i>PowerPoint</i></div></div>
+        <div class="skill"><b>Permis B</b><p>Mobile pour les déplacements liés aux événements.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORMATION ================= -->
+<section class="block" id="formation">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">06 · Études</p><h2>Formation</h2></div>
+    </div>
+    <div class="edu">
+      <div class="edu-row now"><span class="yr">2023 – Actuel</span><div><h3>EFAP Paris 14ᵉ</h3><p>École de Communication · Master en cours</p></div><span class="lvl">4ᵉ année</span></div>
+      <div class="edu-row"><span class="yr">2022 – 2023</span><div><h3>Université Paris Cité</h3><p>Licence Sciences Économiques et Sociales</p></div><span class="lvl">1ʳᵉ année</span></div>
+      <div class="edu-row"><span class="yr">2019 – 2022</span><div><h3>Lycée Alexandre Dumas, Saint-Cloud</h3><p>Baccalauréat général</p></div><span class="lvl">Mention Assez Bien</span></div>
+      <div class="edu-row"><span class="yr">2015 – 2019</span><div><h3>Collège Henri Bergson, Garches</h3><p>Brevet des collèges</p></div><span class="lvl">Mention Bien</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LANGUES / INTÉRÊTS ================= -->
+<section class="block" id="langues">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">07 · Profil</p><h2>Langues &amp; intérêts</h2></div>
+    </div>
+    <div class="two">
+      <div class="panel rose">
+        <h3>Langues</h3>
+        <div class="lang"><div class="lang-top"><span>Français</span><span>Langue maternelle</span></div><div class="bar"><i style="width:100%"></i></div></div>
+        <div class="lang"><div class="lang-top"><span>Anglais</span><span>B2 – C1</span></div><div class="bar"><i style="width:78%"></i></div><small>Certification Cambridge niveau B2 (2022)</small></div>
+        <div class="lang"><div class="lang-top"><span>Espagnol</span><span>A2</span></div><div class="bar"><i style="width:34%"></i></div></div>
+      </div>
+      <div class="panel ink">
+        <h3>Centres d’intérêt</h3>
+        <div class="ints">
+          <div class="int"><span class="int-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></span><span class="int-name">Voyages</span></div>
+          <div class="int"><span class="int-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span><span class="int-name">Photographie</span></div>
+          <div class="int"><span class="int-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><span class="int-name">Musique</span></div>
+          <div class="int"><span class="int-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg></span><span class="int-name">Mode</span></div>
+          <div class="int"><span class="int-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4M17 19h4"/></svg></span><span class="int-name">Cosmétique</span></div>
+          <div class="int"><span class="int-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7v10M18 7v10M3 9v6M21 9v6M6 12h12"/></svg></span><span class="int-name">Sport</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= CONTACT ================= -->
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">08 · Contact</p>
+    <p class="lead">Vous cherchez une alternante motivée pour vos événements ?<br>Je serai ravie d’échanger avec vous.</p>
+    <div class="contact-grid">
+      <div>
+        <p class="name">Clara</p>
+        <div class="coords">
+          <a href="tel:+33761497505"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>07 61 49 75 05</a>
+          <a href="mailto:cjoly9@icloud.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>cjoly9@icloud.com</a>
+          <a href="https://www.linkedin.com/in/clara-joly-" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>linkedin.com/in/clara-joly-</a>
+        </div>
+        <a class="btn btn-ink cv-btn" href="CV-Clara-Joly.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Télécharger mon CV</a>
+      </div>
+      <div class="school">
+        <b>4A EFAP</b>
+        <span>214 boulevard Raspail<br>75014 Paris</span>
+      </div>
+    </div>
+    <div class="legal"><span>© 2026 Clara Joly · Portfolio</span><a data-go="sommaire" role="link" tabindex="0">Retour au sommaire ↑</a></div>
+  </div>
+</footer>
+
+<a class="to-top" id="to-top" hidden data-go="sommaire" role="link" tabindex="0" aria-label="Retour au sommaire"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span>Sommaire</span></a>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image agrandie">
+  <button class="lb-close" id="lb-close" type="button" aria-label="Fermer">×</button>
+  <button class="lb-nav lb-prev" id="lb-prev" type="button" aria-label="Photo précédente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <img id="lb-img" alt="">
+  <div><p id="lb-cap"></p><p class="lb-count" id="lb-count"></p></div>
+  <button class="lb-nav lb-next" id="lb-next" type="button" aria-label="Photo suivante"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),closeBtn=document.getElementById('lb-close'),last=null;
+  var shots=[].slice.call(document.querySelectorAll('.shot button')),cur=0,count=document.getElementById('lb-count');
+  function show(i){
+    cur=(i+shots.length)%shots.length;var bt=shots[cur],im=bt.querySelector('img');
+    img.src=im.currentSrc||im.src;img.alt=im.alt;cap.textContent=bt.getAttribute('data-cap')||im.alt;
+    count.textContent=(cur+1)+' / '+shots.length;
+  }
+  shots.forEach(function(bt,i){
+    bt.addEventListener('click',function(){last=bt;show(i);lb.hidden=false;document.body.style.overflow='hidden';closeBtn.focus();});
+  });
+  document.getElementById('lb-prev').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+  document.getElementById('lb-next').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+  var tx=null;
+  lb.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',function(e){if(tx===null)return;var dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)show(cur+(dx<0?1:-1));tx=null;});
+  function close(){lb.hidden=true;document.body.style.overflow='';if(last)last.focus();}
+  closeBtn.addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  var tt=document.getElementById('to-top'),som=document.getElementById('sommaire');
+  function upd(){tt.hidden=window.scrollY<som.offsetTop+som.offsetHeight-80;}
+  window.addEventListener('scroll',upd,{passive:true});upd();
+  function go(id){
+    var t=document.getElementById(id);
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(t){t.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});}
+    else{window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});}
+  }
+  document.addEventListener('click',function(e){
+    var l=e.target.closest('[data-go]');if(!l)return;
+    e.preventDefault();go(l.getAttribute('data-go'));
+  });
+  document.addEventListener('keydown',function(e){
+    var l=e.target.closest&&e.target.closest('[data-go]');
+    if(l&&(e.key==='Enter'||e.key===' ')){e.preventDefault();go(l.getAttribute('data-go'));}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close();});
+  var navLinks=[].slice.call(document.querySelectorAll('.nav ul [data-go]'));
+  var secs=navLinks.map(function(l){return document.getElementById(l.getAttribute('data-go'));});
+  function act(){
+    var y=140,idx=-1;
+    secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<=y)idx=i;});
+    var c=document.getElementById('contact');if(c&&c.getBoundingClientRect().top<innerHeight*0.5)idx=-1;
+    navLinks.forEach(function(l,i){l.classList.toggle('active',i===idx);});
+  }
+  window.addEventListener('scroll',act,{passive:true});act();
+  if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var els=[].slice.call(document.querySelectorAll('.sec-head,.exp-feature,.exp,.project,.skill-col,.edu-row,.panel,.about-text,.toc ol'));
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){if(el.getBoundingClientRect().top>innerHeight*0.92){el.classList.add('rv');io.observe(el);}});
+  }
+})();
+</script>
+
+</body>
+</html>
