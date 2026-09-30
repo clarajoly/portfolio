@@ -105,7 +105,7 @@ p{margin:0}
 @keyframes scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-25%,0,0)}}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 .hero{padding-block:56px 72px}
-.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:end}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
 .eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--rose-deep)}
 .hero h1{font-family:var(--display);font-size:clamp(64px,11vw,148px);line-height:.9;letter-spacing:-.01em;margin-top:18px}
 .hero .role{margin-top:22px;font-size:clamp(18px,2vw,21px);font-weight:500}
@@ -116,7 +116,9 @@ p{margin:0}
 .fact{background:var(--paper);padding:16px 16px 18px}
 .fact b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(17px,1.4vw,20px);line-height:1.15;white-space:nowrap}
 .fact span{display:block;margin-top:6px;font-size:12.5px;color:var(--ink-soft);line-height:1.45}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-cta .btn{padding:13px 24px;font-size:14.5px}
+@media (max-width:600px){.hero-cta{margin-top:22px}.hero-cta .btn{flex:1 1 100%;justify-content:center}}
 @media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:36px}}
 @media (max-width:520px){.facts{grid-template-columns:1fr}}
 
@@ -477,6 +479,10 @@ section.block + section.block{border-top:1px solid var(--line)}
       <p class="eyebrow">Portfolio · Marketing &amp; Communication</p>
       <h1>Clara<br>Joly</h1>
       <p class="role">Recherche une alternance en marketing &amp; communication <br><em>Jusqu’en septembre 2028</em></p>
+      <div class="hero-cta">
+        <a class="btn btn-ink" href="CV-Clara-Joly.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Télécharger mon CV</a>
+        <a class="btn btn-line" data-go="projets-pro" role="link" tabindex="0">Voir mes projets <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+      </div>
     </div>
     <div class="hero-side">
       <p class="about">Étudiante de 21 ans en 4ᵉ année à l’EFAP Paris en Communication &amp; Marketing, je suis actuellement en alternance et souhaite poursuivre mon parcours en marketing et communication jusqu’en septembre 2028.</p>
@@ -484,12 +490,6 @@ section.block + section.block{border-top:1px solid var(--line)}
         <div class="fact"><b>Dès maintenant</b><span>Disponible pour démarrer</span></div>
         <div class="fact"><b>3 sem. / 1 sem.</b><span>Rythme entreprise / école</span></div>
         <div class="fact"><b>Sept. 2028</b><span>Fin de l’alternance recherchée</span></div>
-      </div>
-      <div class="hero-cta">
-        <a class="btn btn-ink" data-go="projets-pro" role="link" tabindex="0">Voir mes projets
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
-        <a class="btn btn-line" data-go="contact" role="link" tabindex="0">Me contacter</a>
-        <a class="btn btn-line" href="CV-Clara-Joly.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Télécharger mon CV</a>
       </div>
     </div>
   </div>
