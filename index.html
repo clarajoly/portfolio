@@ -64,19 +64,30 @@ p{margin:0}
 .btn-line:hover{background:var(--ink);color:var(--paper)}
 .btn svg{width:14px;height:14px;flex:none}
 .nav .btn{flex:none}
+.burger{display:none}
 @media (max-width:1060px){
-  .nav .wrap{height:auto;flex-wrap:wrap;row-gap:0;padding-block:8px 0}
-  .nav .brand{font-size:20px}
+  .nav .wrap{height:60px;position:relative}
+  .nav .brand{font-size:20px;margin-right:auto}
   .nav .wrap > .btn{padding:8px 16px;font-size:13px}
-  .nav nav{order:3;flex:1 0 100%;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:calc(-1 * clamp(16px,4vw,40px));padding-inline:clamp(16px,4vw,40px);margin-top:8px;border-top:1px solid var(--line);
-    -webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
-  .nav nav::-webkit-scrollbar{display:none}
-  .nav ul{padding-block:8px;gap:6px;width:max-content;padding-right:40px}
-  .nav ul a{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
-  .nav ul a::after{display:none}
-  .nav ul a.active{background:var(--rose);color:var(--ink);border-color:var(--rose)}
-  html{scroll-padding-top:112px}
+  .burger{display:grid;place-content:center;gap:5px;width:42px;height:42px;margin-left:10px;border-radius:50%;border:1px solid var(--line);background:var(--paper);cursor:pointer;flex:none;padding:0}
+  .burger span{display:block;width:18px;height:2px;border-radius:2px;background:var(--ink);transition:transform .25s,opacity .2s}
+  .nav.open .burger{background:var(--ink);border-color:var(--ink)}
+  .nav.open .burger span{background:var(--paper)}
+  .nav.open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav.open .burger span:nth-child(2){opacity:0}
+  .nav.open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav nav{position:absolute;top:100%;left:0;right:0;background:var(--ground);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(43,34,36,.12);
+    padding:8px clamp(16px,4vw,40px) 16px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,transform .2s,visibility .2s}
+  .nav.open nav{opacity:1;visibility:visible;transform:none}
+  .nav ul{flex-direction:column;align-items:stretch;gap:0;flex-wrap:nowrap}
+  .nav ul li{border-bottom:1px solid var(--line)}
+  .nav ul li:last-child{border-bottom:0}
+  .nav ul a{display:flex;justify-content:space-between;align-items:center;padding:14px 4px;font-family:var(--display);font-size:22px;color:var(--ink)}
+  .nav ul a::after{content:"→";position:static;height:auto;background:none;transform:none;font-family:var(--body);font-size:16px;color:var(--rose-deep)}
+  .nav ul a.active{color:var(--rose-deep)}
+  html{scroll-padding-top:72px}
 }
+@media (max-width:420px){.nav .wrap > .btn{display:none}}
 
 /* ---------- hero ---------- */
 .marquee{overflow:hidden;border-bottom:1px solid var(--line);padding-block:18px 14px}
@@ -434,7 +445,7 @@ section.block + section.block{border-top:1px solid var(--line)}
 <header class="nav" id="top">
   <div class="wrap">
     <a class="brand" data-go="top" role="link" tabindex="0"><span class="dot" aria-hidden="true"></span>Clara Joly</a>
-    <nav aria-label="Navigation principale">
+    <nav id="main-nav" aria-label="Navigation principale">
       <ul>
         <li><a data-go="a-propos" role="link" tabindex="0">À propos</a></li>
         <li><a data-go="experiences" role="link" tabindex="0">Expériences</a></li>
@@ -445,6 +456,7 @@ section.block + section.block{border-top:1px solid var(--line)}
       </ul>
     </nav>
     <a class="btn btn-rose" data-go="contact" role="link" tabindex="0">Me contacter</a>
+    <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -699,9 +711,9 @@ section.block + section.block{border-top:1px solid var(--line)}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Regarder</a>
       </div>
       <div class="gal g3 film">
-        <figure class="shot"><button type="button" data-cap="Préparation du tournage avec l’équipe"><img src="images/photo-1.jpg" loading="lazy" decoding="async" alt="Tournage du film promotionnel Astonfly, équipe en discussion avec le matériel"><span class="zoom">Agrandir</span></button></figure>
-        <figure class="shot top"><button type="button" data-cap="Mise en place d’une scène dans le hangar Astonfly"><img src="images/photo-2.jpg" loading="lazy" decoding="async" alt="Équipe Astonfly lors de la soirée de tournage"><span class="zoom">Agrandir</span></button></figure>
-        <figure class="shot top"><button type="button" data-cap="L’équipe de tournage réunie"><img src="images/photo-3.jpg" loading="lazy" decoding="async" alt="Photo de groupe avec l'équipe de tournage"><span class="zoom">Agrandir</span></button></figure>
+        <figure class="shot"><button type="button" data-cap="Préparation du tournage avec l’équipe"><img src="images/photo-1.jpg" width="1800" height="1200" loading="lazy" decoding="async" alt="Tournage du film promotionnel Astonfly, équipe en discussion avec le matériel"><span class="zoom">Agrandir</span></button></figure>
+        <figure class="shot top"><button type="button" data-cap="Mise en place d’une scène dans le hangar Astonfly"><img src="images/photo-2.jpg" width="1350" height="1800" loading="lazy" decoding="async" alt="Équipe Astonfly lors de la soirée de tournage"><span class="zoom">Agrandir</span></button></figure>
+        <figure class="shot top"><button type="button" data-cap="L’équipe de tournage réunie"><img src="images/photo-3.jpg" width="1012" height="1800" loading="lazy" decoding="async" alt="Photo de groupe avec l'équipe de tournage"><span class="zoom">Agrandir</span></button></figure>
       </div>
       <div class="p-body">
         <div class="p-text">
@@ -726,7 +738,7 @@ section.block + section.block{border-top:1px solid var(--line)}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Regarder</a>
       </div>
       <div class="p-body stack">
-        <figure class="shot nat"><button type="button" data-cap="Les promotions réunies lors de la remise des ailes"><img src="images/photo-4.jpg" loading="lazy" decoding="async" alt="Élèves pilotes Astonfly réunis lors de la cérémonie de remise des ailes"><span class="zoom">Agrandir</span></button></figure>
+        <figure class="shot nat"><button type="button" data-cap="Les promotions réunies lors de la remise des ailes"><img src="images/photo-4.jpg" width="1179" height="613" loading="lazy" decoding="async" alt="Élèves pilotes Astonfly réunis lors de la cérémonie de remise des ailes"><span class="zoom">Agrandir</span></button></figure>
         <div class="p-text">
           <h4>Le projet</h4>
           <div class="stats"><span><b>≈ 100</b>participants</span><span><b>4</b>cérémonies par an</span></div>
@@ -761,7 +773,7 @@ section.block + section.block{border-top:1px solid var(--line)}
             <li>Présence et soutien à l’organisation le jour J</li>
           </ul>
         </div>
-        <figure class="shot nat"><button type="button" data-cap="Animation musicale pendant le gala Astonfly"><img src="images/photo-5.jpg" loading="lazy" decoding="async" alt="Saxophoniste sur scène au gala Astonfly"><span class="zoom">Agrandir</span></button></figure>
+        <figure class="shot nat"><button type="button" data-cap="Animation musicale pendant le gala Astonfly"><img src="images/photo-5.jpg" width="1179" height="775" loading="lazy" decoding="async" alt="Saxophoniste sur scène au gala Astonfly"><span class="zoom">Agrandir</span></button></figure>
       </div>
     </article>
   </div>
@@ -783,7 +795,7 @@ section.block + section.block{border-top:1px solid var(--line)}
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Regarder</a>
       </div>
       <div class="p-body">
-        <figure class="shot tall"><button type="button" data-cap="Affiche d’invitation « Le casse du siècle » pour Be Nuts"><img src="images/photo-6.jpg" loading="lazy" decoding="async" alt="Affiche d'invitation Be Nuts, Le casse du siècle"><span class="zoom">Agrandir</span></button></figure>
+        <figure class="shot tall"><button type="button" data-cap="Affiche d’invitation « Le casse du siècle » pour Be Nuts"><img src="images/photo-6.jpg" width="700" height="990" loading="lazy" decoding="async" alt="Affiche d'invitation Be Nuts, Le casse du siècle"><span class="zoom">Agrandir</span></button></figure>
         <div class="p-text">
           <h4>Le brief</h4>
           <p>Imaginer un mail d’invitation pour la marque Be Nuts. Plutôt qu’un mail classique, j’ai proposé une version plus visuelle et originale, sous forme de vidéo.</p>
@@ -817,9 +829,9 @@ section.block + section.block{border-top:1px solid var(--line)}
             <li>Maquette détaillée sur Figma, avec une navigation et une hiérarchie visuelle repensées</li>
           </ul>
         </div>
-        <figure class="shot full contain"><button type="button" data-cap="Étape 1 · Wireframes papier"><img src="images/photo-7.jpg" loading="lazy" decoding="async" alt="Wireframes papier de la page Escort Boys"><span class="zoom">Agrandir</span></button><figcaption>Étape 1 · Wireframes papier</figcaption></figure>
-        <figure class="shot full contain"><button type="button" data-cap="Étape 2 · La page actuelle sur Prime Video"><img src="images/photo-8.jpg" loading="lazy" decoding="async" alt="Captures de la page Escort Boys actuelle sur Amazon Prime Video"><span class="zoom">Agrandir</span></button><figcaption>Étape 2 · La page actuelle sur Prime Video</figcaption></figure>
-        <figure class="shot full contain"><button type="button" data-cap="Étape 3 · Maquette d’amélioration sur Figma"><img src="images/photo-9.jpg" loading="lazy" decoding="async" alt="Maquette d'amélioration UI/UX réalisée sur Figma"><span class="zoom">Agrandir</span></button><figcaption>Étape 3 · Maquette d’amélioration sur Figma</figcaption></figure>
+        <figure class="shot full contain"><button type="button" data-cap="Étape 1 · Wireframes papier"><img src="images/photo-7.jpg" width="1800" height="1007" loading="lazy" decoding="async" alt="Wireframes papier de la page Escort Boys"><span class="zoom">Agrandir</span></button><figcaption>Étape 1 · Wireframes papier</figcaption></figure>
+        <figure class="shot full contain"><button type="button" data-cap="Étape 2 · La page actuelle sur Prime Video"><img src="images/photo-8.jpg" width="1210" height="1042" loading="lazy" decoding="async" alt="Captures de la page Escort Boys actuelle sur Amazon Prime Video"><span class="zoom">Agrandir</span></button><figcaption>Étape 2 · La page actuelle sur Prime Video</figcaption></figure>
+        <figure class="shot full contain"><button type="button" data-cap="Étape 3 · Maquette d’amélioration sur Figma"><img src="images/photo-9.jpg" width="1800" height="1015" loading="lazy" decoding="async" alt="Maquette d'amélioration UI/UX réalisée sur Figma"><span class="zoom">Agrandir</span></button><figcaption>Étape 3 · Maquette d’amélioration sur Figma</figcaption></figure>
       </div>
     </article>
 
@@ -841,7 +853,7 @@ section.block + section.block{border-top:1px solid var(--line)}
             <li>Montage sur logiciel de motion design</li>
           </ul>
         </div>
-        <figure class="shot nat"><button type="button" data-cap="Visuel du CV vidéo"><img src="images/photo-10.jpg" loading="lazy" decoding="async" alt="Clara Joly devant un avion Astonfly"><span class="zoom">Agrandir</span></button></figure>
+        <figure class="shot nat"><button type="button" data-cap="Visuel du CV vidéo"><img src="images/photo-10.jpg" width="1800" height="1350" loading="lazy" decoding="async" alt="Clara Joly devant un avion Astonfly"><span class="zoom">Agrandir</span></button></figure>
       </div>
     </article>
   </div>
@@ -1029,6 +1041,12 @@ section.block + section.block{border-top:1px solid var(--line)}
       document.querySelectorAll('.skill-tabs button').forEach(function(o){o.setAttribute('aria-selected',o===bt?'true':'false');});
     });
   });
+  var nav=document.querySelector('.nav'),bg=document.getElementById('burger');
+  function setMenu(o){nav.classList.toggle('open',o);bg.setAttribute('aria-expanded',o?'true':'false');bg.setAttribute('aria-label',o?'Fermer le menu':'Ouvrir le menu');}
+  bg.addEventListener('click',function(){setMenu(!nav.classList.contains('open'));});
+  nav.querySelectorAll('nav [data-go]').forEach(function(l){l.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+  document.addEventListener('click',function(e){if(nav.classList.contains('open')&&!nav.contains(e.target))setMenu(false);});
 })();
 </script>
 
